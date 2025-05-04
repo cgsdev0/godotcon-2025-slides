@@ -16,7 +16,6 @@ mdc: true
 
 (it's not as scary as it sounds)
 
-
 <!--
 The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
 -->
@@ -45,7 +44,6 @@ layout: image
 <img src="./public/teaser.png" width="640px" class="mx-auto" />
 
 ---
----
 
 # what this talk isn't
 
@@ -53,6 +51,10 @@ layout: image
 
 - not a talk about godot XR
 - no headsets or trackers are involved
+
+<!--
+add an image
+-->
 
 ---
 layout: image-right
@@ -71,7 +73,6 @@ not actually a cop
 - twitch streamer (software and game dev)
 
 ---
----
 
 # software and game dev on twitch
 
@@ -89,24 +90,54 @@ most streams looks like this:
 <span v-after class="absolute text-[#FA0101] font-[Comic_Sans_MS] ml-145 mt--20 text-6xl">kinda<br>boring</span>
 </div>
 
-<span v-click class="absolute ml-145 mt-20 text-2xl">i'm not a video production expert, oh well</span>
-<!-- if coding is boring, why is it the visual focus of the stream -->
+---
+---
+
+# could it be more visually interesting?
+
+<div class="relative flex justify-center mt-10">
+  <img v-click src="./public/iron1.png" class="ml--10 absolute w-180" />
+  <img v-click src="./public/iron2.png" class="absolute w-140 mt-5" />
+  <img v-click src="./public/iron3.png" class="ml-10 absolute mt-15 w-180" />
+</div>
+<!--
+move the not a video production expert
+
+add another slide here with the iron man stuff
+-->
 
 ---
 layout: quote
 ---
 
+# i don't know how to do that stuff...
+
+---
+layout: quote
+---
+
+<div class="flex flex-1 items-center justify-between">
+
 # ...but i *am* a game developer
 
+<img src="./public/thonk.png" class="w-60 items-end" />
+</div>
+
+<!--
+maybe the solution is to stop thinking about streaming like video production, and start thinking about it like game development
+-->
+
+---
+layout: cover
+---
+
+<SlidevVideo src="./public/demo.mp4" autoplay loop autoreset='slide' />
+
 ---
 ---
 
-# what it looks like now
-visual effects fix everything
+<SlidevVideo src="./public/trippy.mp4" autoplay autoreset='slide' />
 
-- show some of the results
-
----
 ---
 
 # why godot?
@@ -117,6 +148,12 @@ visual effects fix everything
 - scripting in Godot is a way nicer experience than OBS
 - Godot is open source and easily extensible
 - bonus points: i'm already familiar with it
+
+<!--
+consider deleting this slide
+
+talk about what is OBS
+-->
 
 ---
 ---
@@ -151,30 +188,70 @@ add a slide for GPU->CPU->GPU explanation
 spent some time trying to fix this, then realized "you know what, good enough"
 
 ---
+
+# segmentation
+
+fancy word for "separate the background"
+
+<div class="relative justify-center flex">
+<img src="./public/think.png" class="w-160 absolute" />
+<img v-click src="./public/background.png" class="w-160 absolute" />
+<img v-click src="./public/green_screen.png" class="w-160 absolute" />
+</div>
+
+---
 ---
 
 # segmentation
 
 fancy word for "separate the background"
 
-## green screen
-
-- cleaner edges
-- less resource hungry
-
----
----
-
-# it looks bad
-
-- something looks... off
+<div class="flex justify-center gap-5 mt-20">
+<img src="./public/background.png" class="w-80 border-1" />
+  <span class="text-9xl">+</span>
+<img src="./public/keyed.png" class="w-80 border-1" />
+  </div>
 
 ---
 ---
 
-# just add noise
+# it looks bad.
 
-- makes a static image look like a video feed
+<img src="./public/gru.jpg" class="w-160 mx-auto" />
+
+---
+layout: two-cols
+---
+
+# why?
+
+- real cameras are imperfect
+- random noise in the image that changes each frame
+
+<br>
+<v-click>
+
+## we can fix it!
+
+```glsl
+// generates noise
+float random (vec2 st) {
+    return fract(sin(dot(st.xy,
+         vec2(12.9898,78.233)))*
+        43758.5453123);
+}
+
+void fragment() {
+  float tex = texture(camera, UV).rgb;
+  float rand = mod(random(UV) + TIME * 2.0, 1.0);
+  ALBEDO = tex + vec3(rand) * 0.004;
+}
+```
+</v-click>
+
+::right::
+
+<img src="./public/noise.png" class="w-80 ml-20 mt-20" />
 
 ---
 ---
@@ -194,9 +271,8 @@ not a very exact science
 - there was some tool i forgot tho
 
 ---
----
 
-# projection projection-ing
+# re-projecting
 
 ---
 ---
@@ -234,7 +310,30 @@ make some cool visuals
 
 lots of options (and they're all mediapipe)
 
-GDMP vs. python vs. browser
+<v-click>
+
+- GDMP: gdextension (c++)
+  - easiest to setup
+  - ❌ no GPU support on windows
+
+</v-click>
+<v-click>
+
+- python
+  - ❌ also no GPU support on windows
+
+</v-click>
+<v-click>
+
+- run mediapipe in the browser
+  - ✅ GPU support on windows!
+  - can talk to Godot via websocket
+  - [code on github](https://github.com/cgsdev0/mediapipe-js)
+
+</v-click>
+
+
+<SlidevVideo src="./public/hands.mp4" autoplay loop class="w-100 absolute top-40 right-15"/>
 
 ---
 ---
