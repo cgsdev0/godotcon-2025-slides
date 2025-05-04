@@ -1,28 +1,15 @@
 ---
-# You can also start simply with 'default'
+# stuff
 theme: default
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-# background: https://cover.sli.dev
-# some information about your slides (markdown enabled)
+info: a
 title: Using Godot for mixed-reality livestreaming
-info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
 # apply unocss classes to the current slide
 class: text-center
 # https://sli.dev/features/drawing
 drawings:
   persist: false
-# slide transition: https://sli.dev/guide/animations.html#slide-transitions
-# transition: slide-left
 # enable MDC Syntax: https://sli.dev/features/mdc
 mdc: true
-# open graph
-# seoMeta:
-#  ogImage: https://cover.sli.dev
 ---
 
 # Using Godot for mixed-reality livestreaming
@@ -39,22 +26,44 @@ The last comment block of each slide will be treated as slide notes. It will be 
 
 # what does that mean
 
-- mixed reality is just when 3d but also camera
-- exploratory project over past 2 months
+`mix(real_camera, virtual_camera, 0.5)`
 
-- show a teaser image
+<div class="relative flex items-center justify-center">
+  <img src="./public/Camera3D.svg" width="250px" class="object-contain" />
+  <span class="text-9xl ml-5 mr-10">+</span>
+  <img src="./public/sony.png" width="250px" class="mt-20 object-contain" />
+</div>
+
+---
+layout: image
+---
+
+# what does that mean
+
+`mix(real_camera, virtual_camera, 0.5)`
+
+<img src="./public/teaser.png" width="640px" class="mx-auto" />
+
 ---
 ---
 
 # what this talk isn't
 
+(a very good talk)
+
 - not a talk about godot XR
 - no headsets or trackers are involved
 
 ---
+layout: image-right
+
+image: badcop.png
+backgroundSize: 20em
 ---
 
-# who am i
+# who am i?
+
+not actually a cop
 
 - sarah a.k.a. "badcop"
 - godot user for 5 years
@@ -64,35 +73,82 @@ The last comment block of each slide will be treated as slide notes. It will be 
 ---
 ---
 
-# coding streams are kinda boring
+# software and game dev on twitch
 
-- most streams looks like this:
+there are dozens of us!
 
-if coding is boring, why is it the visual focus of the stream
+- variety of programming and game development content
+- fairly small category
+
+<div  class="relative">
+  <div v-click>
+most streams looks like this:
+<img src="./public/every_stream.png" class="absolute w-120" />
+    </div>
+<img v-click src="./public/arrow.svg" class="absolute w-80 ml-60 rotate--20" />
+<span v-after class="absolute text-[#FA0101] font-[Comic_Sans_MS] ml-145 mt--20 text-6xl">kinda<br>boring</span>
+</div>
+
+<span v-click class="absolute ml-145 mt-20 text-2xl">i'm not a video production expert, oh well</span>
+<!-- if coding is boring, why is it the visual focus of the stream -->
+
+---
+layout: quote
+---
+
+# ...but i *am* a game developer
 
 ---
 ---
 
-# what i've been making
+# what it looks like now
+visual effects fix everything
 
 - show some of the results
 
 ---
 ---
 
-# why godot
+# why godot?
 
-- traditional streaming tools confused my programmer brain
-- what's easier? bring 3D engine to OBS, or bring OBS to 3D engine?
+*"but why male models?"*
+
+- which is easier: bring 3D into OBS, or bring OBS features into Godot?
+- scripting in Godot is a way nicer experience than OBS
+- Godot is open source and easily extensible
+- bonus points: i'm already familiar with it
 
 ---
 ---
 
 
-# goal
+# initial goal
 
-- do all of the capture and rendering in godot
-- still use OBS for streaming
+the plan is simple
+
+<v-after>1. capture my camera and desktop in Godot<br></v-after>
+<v-click>2. create a 3D scene out of that somehow<br>
+</v-click>
+<v-click>3. render the final stream output in Godot<br>
+</v-click>
+<v-click>4. still use OBS for audio / encoding / streaming<br>
+</v-click>
+
+<v-click><br><br><br>5. it only needs to work on Windows (sorry)</v-click>
+
+---
+
+# step 1: camera capture
+
+the unapologetic cheating begins
+
+using spout-gd for now
+
+talk about camera extension
+
+add a slide for GPU->CPU->GPU explanation
+
+spent some time trying to fix this, then realized "you know what, good enough"
 
 ---
 ---
@@ -101,15 +157,17 @@ if coding is boring, why is it the visual focus of the stream
 
 fancy word for "separate the background"
 
-## background removal
-
-- don't need a green screen
-- actual live background
-
 ## green screen
 
 - cleaner edges
 - less resource hungry
+
+---
+---
+
+# it looks bad
+
+- something looks... off
 
 ---
 ---
@@ -121,7 +179,7 @@ fancy word for "separate the background"
 ---
 ---
 
-# modeling the environment
+# step 2: make it 3D
 
 - simple blockout using blender
 - tape measure
@@ -129,14 +187,16 @@ fancy word for "separate the background"
 ---
 ---
 
-# projection mapping
+# projection un-mapping
+
+not a very exact science
 
 - there was some tool i forgot tho
 
 ---
 ---
 
-# 2D -> 3D -> 2D
+# projection projection-ing
 
 ---
 ---
@@ -144,6 +204,13 @@ fancy word for "separate the background"
 # depth of field blur
 
 - it just works!
+
+---
+---
+
+# step 3: window capture
+
+- window capture in godot
 
 ---
 ---
@@ -159,13 +226,6 @@ fancy word for "separate the background"
 # deep dive: packing floats
 
 make some cool visuals
-
----
----
-
-# camera capture
-
-using spout-gd for now
 
 ---
 ---
@@ -188,9 +248,9 @@ GDMP vs. python vs. browser
 ---
 ---
 
-# Final Thoughts
+# final thoughts
 
-Special thanks to...
+special thanks to...
 ### Code help
 - StaydMcmuffin
 - LainVT
