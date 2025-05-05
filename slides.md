@@ -15,10 +15,11 @@ mdc: true
 # Using Godot for mixed-reality livestreaming
 
 <!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
+good luck
+
+TODO: make this slide better
 -->
 
----
 ---
 
 # what does that mean
@@ -89,7 +90,6 @@ most streams looks like this:
 </div>
 
 ---
----
 
 # could it be more visually interesting?
 
@@ -132,7 +132,6 @@ layout: cover
 <SlidevVideo src="./demo.mp4" autoplay loop autoreset='slide' />
 
 ---
----
 
 <SlidevVideo src="./trippy.mp4" autoplay autoreset='slide' />
 
@@ -160,7 +159,6 @@ it's rewind time
 <img src="./obs.png" class="absolute right-30 top-40 w-50" />
 
 ---
----
 
 # this is where Godot comes in
 
@@ -168,6 +166,9 @@ we've been waiting
 
 - easier to bring OBS features into Godot vs. bring 3D to OBS
 - scripting in Godot feels more productive than in OBS
+  - ❌ **lua scripting in OBS**: thin wrapper around C API
+  - ❌ **controlling OBS via websockets**: managing external state hard
+  - ✅ **using GDScript**: lovely
 - bonus points: i'm already familiar with it
 
 <img src="./godot.png" class="w-60 mt-10 mx-auto" />
@@ -218,12 +219,36 @@ it's never that simple
 <img src="./spout.png" class="absolute right-40 top-40 w-50" />
 
 ---
+
+# GPU and CPU
+
+friends, or enemies?
+
+- spout allows multiple programs to share a texture on the GPU
+- supports DX11 and OpenGL
+
+TODO: diagram
+
 ---
 
 # GPU and CPU
 
+friends, or enemies?
 
----
+- Forward+ renderer uses Vulkan (or DX12)
+- because of this, `spout-gd` takes the more scenic route
+
+```c++
+// causes spout to copy the texture data to the CPU
+spout->receive_buffer(buffer, GLFormat::FORMAT_RGBA)
+
+// ideally, we would do it this way
+spout->receive_texture(texture_id, GLFormat::FORMAT_RGBA)
+```
+
+
+TODO: diagram
+
 ---
 
 # learning Vulkan
@@ -242,7 +267,6 @@ i'm not "giving up", just "moving it to the backlog"
 sometimes it's ok to give up on those rabbithole tasks
 -->
 
----
 ---
 
 # segmentation
@@ -268,7 +292,6 @@ fancy word for "separate the background"
 <img src="./keyed.png" class="w-80 border-1" />
   </div>
 
----
 ---
 
 # ... it looks bad.
@@ -315,22 +338,57 @@ add some code highlight annotations mebe
 -->
 
 ---
+
+# step 2: make it 3D
+
+it's usually easier to go the other way...
+
+- machine learning? photogrammetry? magic?
+
+<br>
+
+<img src="./photogrammetry.jpg" class="w-150 mx-auto" />
+
+<img v-click src="./big_x.svg" class="absolute w-200 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3" />
 ---
 
 # step 2: make it 3D
 
 it's usually easier to go the other way...
-- simple blockout using blender
-- tape measure
+
+<div class="flex justify-center gap-5 mt-20">
+<img src="./blender.svg" class="w-80" />
+  <span class="text-9xl pt-18">+</span>
+<img src="./tape_measure.png" class="w-80" />
+  </div>
 
 ---
+
+# step 2: make it 3D
+
+it's usually easier to go the other way...
+
+<img src="./lol_blender.png" class="w-160 mx-auto" />
+
 ---
 
 # projection un-mapping
 
 not a very exact science
 
-- there was some tool i forgot tho
+- free open source tool called [fSpy](https://fspy.io/)
+
+<br>
+
+<img src="./fspy.jpg" class="w-130 mx-auto" />
+
+---
+
+# projection un-mapping
+
+not a very exact science
+
+<img src="./aligned.png" class="w-130 mx-auto" />
 
 ---
 
@@ -338,11 +396,33 @@ not a very exact science
 
 make it look like before again
 
-TODO: add shader code
+how do we apply the texture to the model?
 
-<SlidevVideo v-click src="./panning.mp4" autoplay loop class="absolute w-180 left-30 top-30"/>
+````md magic-move {lines: true}
+```glsl {all|2}
+void fragment() {
+  vec4 color = texture(albedo_texture, UV);
+  ALBEDO = color.rgb;
+}
+```
+
+```glsl {2|all}
+void fragment() {
+  vec4 color = texture(albedo_texture, SCREEN_UV);
+  ALBEDO = color.rgb;
+}
+```
+````
 
 ---
+
+# re-projecting
+
+make it look like before again
+
+
+<SlidevVideo src="./panning.mp4" autoplay loop class="absolute w-180 left-30 top-30"/>
+
 ---
 
 # re-projecting
@@ -350,7 +430,7 @@ TODO: add shader code
 make it look like before again
 
 <img src="./same.jpg" class="w-170 mx-auto" />
----
+
 ---
 
 # depth of field blur
@@ -360,13 +440,23 @@ it just works!
 <SlidevVideo src="./dof.mp4" autoplay loop autoreset='slide' class="absolute w-180 left-30 top-30"/>
 
 ---
+layout: image-right
+image: gooder.png
+backgroundSize: contain
 ---
 
 # step 3: window capture
 
-- window capture in godot
+<br>
+<br>
+<br>
 
----
+- i wrote a [gdextension](https://github.com/cgsdev0/gd-capture-external) 
+- supports capturing windows by ID
+- exposes the window as a `Texture` resource
+- uses the `WindowsGraphicsCapture` API
+- the code is bad, but it's available
+
 ---
 
 # transparency was a mistake
@@ -380,7 +470,6 @@ why can't everything just be opaque?
   </div>
 
 ---
----
 
 # solution: two rendering passes
 
@@ -389,7 +478,6 @@ it only needs to run at 60 fps anyways
 <img src="./two_pass.png" class="w-180 mx-auto" />
 
 
----
 ---
 
 # i really want glowy intersections
@@ -402,14 +490,17 @@ no matter the cost
 </div>
 
 ---
----
 
 # we simply use the depth texture
 
 nothing will go wrong (lol)
 
+- popularly used effect, available on [godotshaders.com](https://godotshaders.com/shader/shield-shader-with-intersection-highlight/)
+
+<br>
+
 <div class="flex gap-20 justify-center">
-<img src="./depth.png" class="w-170" />
+<img src="./depth.png" class="w-150" />
 </div>
 
 ---
@@ -421,9 +512,8 @@ layout: quote
 who could have predicted this
 
 ---
----
 
-# solution: three rendering passes
+# solution: *three* rendering passes
 
 it only needs to run at 30 fps anyways
 
@@ -452,7 +542,6 @@ it only needs to run at 30 fps anyways
 
 </v-click>
 </v-click>
----
 ---
 
 # RE: solution: solution
@@ -487,38 +576,17 @@ float UnpackVec3ToFloat(vec3 avVal) {
 </v-click>
 
 ---
----
 
-# hand tracking
+# RE: solution: solution
 
-lots of options (and they're all mediapipe)
+last one, i promise
 
-<v-click>
+<div class="flex justify-center gap-5 items-center mt-20">
+<img src="./depth.png" class="w-90 " />
+<span class="text-6xl">&rarr;</span>
+<img src="./very_deep.png" class="w-90 " />
+</div>
 
-- GDMP: gdextension (c++)
-  - easiest to setup
-  - ❌ no GPU support on windows
-
-</v-click>
-<v-click>
-
-- python
-  - ❌ also no GPU support on windows
-
-</v-click>
-<v-click>
-
-- run mediapipe in the browser
-  - ✅ GPU support on windows!
-  - can talk to Godot via websocket
-  - [code on github](https://github.com/cgsdev0/mediapipe-js)
-
-</v-click>
-
-
-<SlidevVideo src="./hands.mp4" autoplay loop class="w-100 absolute top-40 right-15"/>
-
----
 ---
 
 # what's next
@@ -526,7 +594,20 @@ lots of options (and they're all mediapipe)
 follow me on twitch to find out (jk)
 - physics objects
 - more integrations with twitch chat / redeems
-- doing more with hand tracking
+- tie some animations to hand tracking
+
+<SlidevVideo src="./hands.mp4" autoplay loop class="w-100 absolute top-40 right-15"/>
+
+---
+
+# what's next
+
+follow me on twitch to find out (jk)
+- physics objects
+- more integrations with twitch chat / redeems
+- tie some animations to hand tracking
+
+<SlidevVideo src="./hands.mp4" autoplay loop class="w-100 absolute top-40 right-15"/>
 
 ---
 layout: image-left
