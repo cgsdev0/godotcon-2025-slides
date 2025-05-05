@@ -129,11 +129,11 @@ maybe the solution is to stop thinking about streaming like video production, an
 layout: cover
 ---
 
-<SlidevVideo src="/demo.mp4" autoplay loop autoreset='slide' />
+<SlidevVideo src="demo.mp4" autoplay loop autoreset='slide' />
 
 ---
 
-<SlidevVideo src="/trippy.mp4" autoplay autoreset='slide' />
+<SlidevVideo src="trippy.mp4" autoplay autoreset='slide' />
 
 ---
 
@@ -421,7 +421,7 @@ void fragment() {
 make it look like before again
 
 
-<SlidevVideo src="/panning.mp4" autoplay loop class="absolute w-180 left-30 top-30"/>
+<SlidevVideo src="panning.mp4" autoplay loop class="absolute w-180 left-30 top-30"/>
 
 ---
 
@@ -437,7 +437,7 @@ make it look like before again
 
 it just works!
 
-<SlidevVideo src="/dof.mp4" autoplay loop autoreset='slide' class="absolute w-180 left-30 top-30"/>
+<SlidevVideo src="dof.mp4" autoplay loop autoreset='slide' class="absolute w-180 left-30 top-30"/>
 
 ---
 layout: image-right
@@ -456,6 +456,8 @@ backgroundSize: contain
 - exposes the window as a `Texture` resource
 - uses the `WindowsGraphicsCapture` API
 - the code is bad, but it's available
+
+<img src="/no_desc.png" class="absolute bottom-10" />
 
 ---
 
@@ -596,18 +598,7 @@ follow me on twitch to find out (jk)
 - more integrations with twitch chat / redeems
 - tie some animations to hand tracking
 
-<SlidevVideo src="/hands.mp4" autoplay loop class="w-100 absolute top-40 right-15"/>
-
----
-
-# what's next
-
-follow me on twitch to find out (jk)
-- physics objects
-- more integrations with twitch chat / redeems
-- tie some animations to hand tracking
-
-<SlidevVideo src="/hands.mp4" autoplay loop class="w-100 absolute top-40 right-15"/>
+<SlidevVideo src="hands.mp4" autoplay loop class="w-100 absolute top-40 right-15"/>
 
 ---
 layout: image-left
