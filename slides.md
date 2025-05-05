@@ -140,20 +140,39 @@ layout: cover
 
 ---
 
-# why godot?
+# let's rewind
 
-*"but why male models?"*
+it's rewind time
 
-- which is easier: bring 3D into OBS, or bring OBS features into Godot?
-- scripting in Godot is a way nicer experience than OBS
-- Godot is open source and easily extensible
+## how do streamers stream?
+
+<br>
+
+- pretty much everyone uses [OBS Studio](https://obsproject.com/)
+- it does everything - capture, rendering, encoding, streaming
+- lots of community plugins to extend functionality
+- also lots of software that integrates with it
+
+<v-click>
+
+- ❌ it doesn't really do 3D
+
+</v-click>
+
+<img src="./public/obs.png" class="absolute right-30 top-40 w-50" />
+
+---
+---
+
+# this is where Godot comes in
+
+we've been waiting
+
+- easier to bring OBS features into Godot vs. bring 3D to OBS
+- scripting in Godot feels more productive than in OBS
 - bonus points: i'm already familiar with it
 
-<!--
-consider deleting this slide
-
-talk about what is OBS
--->
+<img src="./public/godot.png" class="w-60 mt-10 mx-auto" />
 
 ---
 ---
@@ -177,16 +196,55 @@ the plan is simple
 
 # step 1: camera capture
 
-the unapologetic cheating begins
+it's never that simple
 
-using spout-gd for now
+## Several Options
 
-talk about camera extension
+1. ❌ use Godot's [CameraServer](https://docs.godotengine.org/en/stable/classes/class_cameraserver.html)
+    - no Windows support yet
 
-add a slide for GPU->CPU->GPU explanation
+<br>
 
-spent some time trying to fix this, then realized "you know what, good enough"
+2. ❌ use [godot-cameraserver-extension](https://github.com/j20001970/godot-cameraserver-extension)
+    - gdextension that extends `CameraServer`
+    - still very new and early development
 
+<br>
+
+3. ✅ Capture the camera in OBS, share it via [spout-gd](https://github.com/you-win/spout-gd)
+    - works, but kinda resource intensive
+<v-click>
+  <li>maybe i can improve it?</li>
+</v-click>
+
+<img src="./public/spout.png" class="absolute right-40 top-40 w-50" />
+
+---
+---
+
+# GPU and CPU
+
+
+---
+---
+
+# learning Vulkan
+
+<img src="./public/vulkan.jpg" class="mx-auto w-150" />
+
+---
+layout: quote
+---
+
+# ... maybe it's fine for now
+
+i'm not "giving up", just "moving it to the backlog"
+
+<!--
+sometimes it's ok to give up on those rabbithole tasks
+-->
+
+---
 ---
 
 # segmentation
@@ -208,14 +266,14 @@ fancy word for "separate the background"
 
 <div class="flex justify-center gap-5 mt-20">
 <img src="./public/background.png" class="w-80 border-1" />
-  <span class="text-9xl">+</span>
+  <span class="text-9xl pt-4">+</span>
 <img src="./public/keyed.png" class="w-80 border-1" />
   </div>
 
 ---
 ---
 
-# it looks bad.
+# ... it looks bad.
 
 <img src="./public/gru.jpg" class="w-160 mx-auto" />
 
@@ -226,7 +284,8 @@ layout: two-cols
 # why?
 
 - real cameras are imperfect
-- random noise in the image that changes each frame
+- random noise in the image changes each frame
+- physics n' stuff
 
 <br>
 <v-click>
@@ -253,11 +312,16 @@ void fragment() {
 
 <img src="./public/noise.png" class="w-80 ml-20 mt-20" />
 
+<!--
+add some code highlight annotations mebe
+-->
+
 ---
 ---
 
 # step 2: make it 3D
 
+it's usually easier to go the other way...
 - simple blockout using blender
 - tape measure
 
@@ -274,12 +338,21 @@ not a very exact science
 
 # re-projecting
 
+make it look like before again
+
+TODO: add shader code
+
+<SlidevVideo v-click src="./public/panning.mp4" autoplay loop class="absolute w-180 left-30 top-30"/>
+
+
 ---
 ---
 
 # depth of field blur
 
-- it just works!
+it just works!
+
+<SlidevVideo src="./public/dof.mp4" autoplay loop autoreset='slide' class="absolute w-180 left-30 top-30"/>
 
 ---
 ---
@@ -340,6 +413,7 @@ lots of options (and they're all mediapipe)
 
 # what's next
 
+follow me on twitch to find out (jk)
 - physics objects
 - more integrations with twitch chat / redeems
 - doing more with hand tracking
@@ -350,14 +424,15 @@ lots of options (and they're all mediapipe)
 # final thoughts
 
 special thanks to...
-### Code help
-- StaydMcmuffin
-- LainVT
+### code help
+- [StaydMcmuffin](https://www.twitch.tv/staydmcmuffin)
+- [LainVT](https://www.twitch.tv/lainvt)
 
 <br>
 
-### Inspiring streamers
-- CR4ZYK1TTY
-- JDDoesDev
-- Venorrak
-- LCOLONQ
+### streamers who inspired me
+- [CR4ZYK1TTY](https://www.twitch.tv/staydmcmuffin)
+- [JDDoesDev](https://www.twitch.tv/jddoesdev)
+- [Venorrak](https://www.twitch.tv/venorrak)
+- [LCOLONQ](https://www.twitch.tv/lcolonq)
+- [mdxcai](https://www.twitch.tv/mdxcai)
