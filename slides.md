@@ -14,6 +14,10 @@ mdc: true
 
 # Using Godot for mixed-reality livestreaming
 
+Godotcon Boston 2025
+
+<img src="/title.png" class="w-70 absolute bottom-0 right-0" style="filter:drop-shadow(0 0 20px #537fff88);" />
+
 <!--
 good luck
 
@@ -29,7 +33,7 @@ TODO: make this slide better
 <div class="relative flex items-center justify-center">
   <img src="/Camera3D.svg" width="250px" class="object-contain" />
   <span class="text-9xl ml-5 mr-10">+</span>
-  <img src="/sony.png" width="250px" class="mt-20 object-contain" />
+  <img src="/sony.png" width="250px" class="mt-20 object-contain" style="filter:drop-shadow(0 0 8px #777);" />
 </div>
 
 ---
