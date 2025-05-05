@@ -26,9 +26,9 @@ The last comment block of each slide will be treated as slide notes. It will be 
 `mix(real_camera, virtual_camera, 0.5)`
 
 <div class="relative flex items-center justify-center">
-  <img src="./public/Camera3D.svg" width="250px" class="object-contain" />
+  <img src="./Camera3D.svg" width="250px" class="object-contain" />
   <span class="text-9xl ml-5 mr-10">+</span>
-  <img src="./public/sony.png" width="250px" class="mt-20 object-contain" />
+  <img src="./sony.png" width="250px" class="mt-20 object-contain" />
 </div>
 
 ---
@@ -39,7 +39,7 @@ layout: image
 
 `mix(real_camera, virtual_camera, 0.5)`
 
-<img src="./public/teaser.png" width="640px" class="mx-auto" />
+<img src="./teaser.png" width="640px" class="mx-auto" />
 
 ---
 
@@ -82,9 +82,9 @@ there are dozens of us!
 <div  class="relative">
   <div v-click>
 most streams looks like this:
-<img src="./public/every_stream.png" class="absolute w-120" />
+<img src="./every_stream.png" class="absolute w-120" />
     </div>
-<img v-click src="./public/arrow.svg" class="absolute w-80 ml-60 rotate--20" />
+<img v-click src="./arrow.svg" class="absolute w-80 ml-60 rotate--20" />
 <span v-after class="absolute text-[#FA0101] font-[Comic_Sans_MS] ml-145 mt--20 text-6xl">kinda<br>boring</span>
 </div>
 
@@ -94,9 +94,9 @@ most streams looks like this:
 # could it be more visually interesting?
 
 <div class="relative flex justify-center mt-10">
-  <img v-click src="./public/iron1.png" class="ml--10 absolute w-180" />
-  <img v-click src="./public/iron2.png" class="absolute w-140 mt-5" />
-  <img v-click src="./public/iron3.png" class="ml-10 absolute mt-15 w-180" />
+  <img v-click src="./iron1.png" class="ml--10 absolute w-180" />
+  <img v-click src="./iron2.png" class="absolute w-140 mt-5" />
+  <img v-click src="./iron3.png" class="ml-10 absolute mt-15 w-180" />
 </div>
 <!--
 move the not a video production expert
@@ -118,7 +118,7 @@ layout: quote
 
 # ...but i *am* a game developer
 
-<img src="./public/thonk.png" class="w-60 items-end" />
+<img src="./thonk.png" class="w-60 items-end" />
 </div>
 
 <!--
@@ -129,12 +129,12 @@ maybe the solution is to stop thinking about streaming like video production, an
 layout: cover
 ---
 
-<SlidevVideo src="./public/demo.mp4" autoplay loop autoreset='slide' />
+<SlidevVideo src="./demo.mp4" autoplay loop autoreset='slide' />
 
 ---
 ---
 
-<SlidevVideo src="./public/trippy.mp4" autoplay autoreset='slide' />
+<SlidevVideo src="./trippy.mp4" autoplay autoreset='slide' />
 
 ---
 
@@ -157,7 +157,7 @@ it's rewind time
 
 </v-click>
 
-<img src="./public/obs.png" class="absolute right-30 top-40 w-50" />
+<img src="./obs.png" class="absolute right-30 top-40 w-50" />
 
 ---
 ---
@@ -170,7 +170,7 @@ we've been waiting
 - scripting in Godot feels more productive than in OBS
 - bonus points: i'm already familiar with it
 
-<img src="./public/godot.png" class="w-60 mt-10 mx-auto" />
+<img src="./godot.png" class="w-60 mt-10 mx-auto" />
 
 ---
 ---
@@ -215,7 +215,7 @@ it's never that simple
   <li>maybe i can improve it?</li>
 </v-click>
 
-<img src="./public/spout.png" class="absolute right-40 top-40 w-50" />
+<img src="./spout.png" class="absolute right-40 top-40 w-50" />
 
 ---
 ---
@@ -228,7 +228,7 @@ it's never that simple
 
 # learning Vulkan
 
-<img src="./public/vulkan.jpg" class="mx-auto w-150" />
+<img src="./vulkan.jpg" class="mx-auto w-150" />
 
 ---
 layout: quote
@@ -250,9 +250,9 @@ sometimes it's ok to give up on those rabbithole tasks
 fancy word for "separate the background"
 
 <div class="relative justify-center flex">
-<img src="./public/think.png" class="w-160 absolute" />
-<img v-click src="./public/background.png" class="w-160 absolute" />
-<img v-click src="./public/green_screen.png" class="w-160 absolute" />
+<img src="./think.png" class="w-160 absolute" />
+<img v-click src="./background.png" class="w-160 absolute" />
+<img v-click src="./green_screen.png" class="w-160 absolute" />
 </div>
 
 ---
@@ -263,9 +263,9 @@ fancy word for "separate the background"
 fancy word for "separate the background"
 
 <div class="flex justify-center gap-5 mt-20">
-<img src="./public/background.png" class="w-80 border-1" />
+<img src="./background.png" class="w-80 border-1" />
   <span class="text-9xl pt-4">+</span>
-<img src="./public/keyed.png" class="w-80 border-1" />
+<img src="./keyed.png" class="w-80 border-1" />
   </div>
 
 ---
@@ -273,7 +273,7 @@ fancy word for "separate the background"
 
 # ... it looks bad.
 
-<img src="./public/gru.jpg" class="w-160 mx-auto" />
+<img src="./gru.jpg" class="w-160 mx-auto" />
 
 ---
 layout: two-cols
@@ -308,7 +308,7 @@ void fragment() {
 
 ::right::
 
-<img src="./public/noise.png" class="w-80 ml-20 mt-20" />
+<img src="./noise.png" class="w-80 ml-20 mt-20" />
 
 <!--
 add some code highlight annotations mebe
@@ -340,7 +340,7 @@ make it look like before again
 
 TODO: add shader code
 
-<SlidevVideo v-click src="./public/panning.mp4" autoplay loop class="absolute w-180 left-30 top-30"/>
+<SlidevVideo v-click src="./panning.mp4" autoplay loop class="absolute w-180 left-30 top-30"/>
 
 ---
 ---
@@ -349,7 +349,7 @@ TODO: add shader code
 
 make it look like before again
 
-<img src="./public/same.jpg" class="w-170 mx-auto" />
+<img src="./same.jpg" class="w-170 mx-auto" />
 ---
 ---
 
@@ -357,7 +357,7 @@ make it look like before again
 
 it just works!
 
-<SlidevVideo src="./public/dof.mp4" autoplay loop autoreset='slide' class="absolute w-180 left-30 top-30"/>
+<SlidevVideo src="./dof.mp4" autoplay loop autoreset='slide' class="absolute w-180 left-30 top-30"/>
 
 ---
 ---
@@ -374,9 +374,9 @@ it just works!
 why can't everything just be opaque?
 
 <div class="relative">
-<img src="./public/blur_cancel.png" class="w-120 absolute" />
-<img v-click src="./public/blur_cancel.png" class="mt-49 scale-[1.1] ml-100 w-100 h-50 absolute object-none object-[50%_35%] blur" />
-<img v-after src="./public/blur_cancel.png" class="mt-49 scale-[1.1] ml-100 w-100 h-50 absolute object-none object-[50%_35%]" />
+<img src="./blur_cancel.png" class="w-120 absolute" />
+<img v-click src="./blur_cancel.png" class="mt-49 scale-[1.1] ml-100 w-100 h-50 absolute object-none object-[50%_35%] blur" />
+<img v-after src="./blur_cancel.png" class="mt-49 scale-[1.1] ml-100 w-100 h-50 absolute object-none object-[50%_35%]" />
   </div>
 
 ---
@@ -386,7 +386,7 @@ why can't everything just be opaque?
 
 it only needs to run at 60 fps anyways
 
-<img src="./public/two_pass.png" class="w-180 mx-auto" />
+<img src="./two_pass.png" class="w-180 mx-auto" />
 
 
 ---
@@ -397,8 +397,8 @@ it only needs to run at 60 fps anyways
 no matter the cost
 
 <div class="flex gap-20 justify-center">
-<img src="./public/glow1.png" class="w-90" />
-<img src="./public/glow2.png" class="w-90" />
+<img src="./glow1.png" class="w-90" />
+<img src="./glow2.png" class="w-90" />
 </div>
 
 ---
@@ -409,7 +409,7 @@ no matter the cost
 nothing will go wrong (lol)
 
 <div class="flex gap-20 justify-center">
-<img src="./public/depth.png" class="w-170" />
+<img src="./depth.png" class="w-170" />
 </div>
 
 ---
@@ -431,7 +431,7 @@ it only needs to run at 30 fps anyways
 - this pass excludes the windows;
 - only draws geometry we want to have the glowy edges
 
-<img src="./public/three_pass.png" class="absolute top-20 right-10" />
+<img src="./three_pass.png" class="absolute top-20 right-10" />
 
 <br>
 <br>
@@ -516,7 +516,7 @@ lots of options (and they're all mediapipe)
 </v-click>
 
 
-<SlidevVideo src="./public/hands.mp4" autoplay loop class="w-100 absolute top-40 right-15"/>
+<SlidevVideo src="./hands.mp4" autoplay loop class="w-100 absolute top-40 right-15"/>
 
 ---
 ---
