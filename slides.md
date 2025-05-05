@@ -227,7 +227,7 @@ friends, or enemies?
 - spout allows multiple programs to share a texture on the GPU
 - supports DX11 and OpenGL
 
-TODO: diagram
+<img src="/dream.png" class="w-160 mx-auto" />
 
 ---
 
@@ -238,16 +238,8 @@ friends, or enemies?
 - Forward+ renderer uses Vulkan (or DX12)
 - because of this, `spout-gd` takes the more scenic route
 
-```c++
-// causes spout to copy the texture data to the CPU
-spout->receive_buffer(buffer, GLFormat::FORMAT_RGBA)
 
-// ideally, we would do it this way
-spout->receive_texture(texture_id, GLFormat::FORMAT_RGBA)
-```
-
-
-TODO: diagram
+<img src="/reality.png" class="w-160 mx-auto" />
 
 ---
 
