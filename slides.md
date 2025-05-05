@@ -14,8 +14,6 @@ mdc: true
 
 # Using Godot for mixed-reality livestreaming
 
-(it's not as scary as it sounds)
-
 <!--
 The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
 -->
@@ -344,7 +342,14 @@ TODO: add shader code
 
 <SlidevVideo v-click src="./public/panning.mp4" autoplay loop class="absolute w-180 left-30 top-30"/>
 
+---
+---
 
+# re-projecting
+
+make it look like before again
+
+<img src="./public/same.jpg" class="w-170 mx-auto" />
 ---
 ---
 
@@ -364,17 +369,122 @@ it just works!
 ---
 ---
 
-# floating windows
+# transparency was a mistake
 
-- window capture in godot
-- transparency sorting hell
+why can't everything just be opaque?
+
+<div class="relative">
+<img src="./public/blur_cancel.png" class="w-120 absolute" />
+<img v-click src="./public/blur_cancel.png" class="mt-49 scale-[1.1] ml-100 w-100 h-50 absolute object-none object-[50%_35%] blur" />
+<img v-after src="./public/blur_cancel.png" class="mt-49 scale-[1.1] ml-100 w-100 h-50 absolute object-none object-[50%_35%]" />
+  </div>
 
 ---
 ---
 
-# deep dive: packing floats
+# solution: two rendering passes
 
-make some cool visuals
+it only needs to run at 60 fps anyways
+
+<img src="./public/two_pass.png" class="w-180 mx-auto" />
+
+
+---
+---
+
+# i really want glowy intersections
+
+no matter the cost
+
+<div class="flex gap-20 justify-center">
+<img src="./public/glow1.png" class="w-90" />
+<img src="./public/glow2.png" class="w-90" />
+</div>
+
+---
+---
+
+# we simply use the depth texture
+
+nothing will go wrong (lol)
+
+<div class="flex gap-20 justify-center">
+<img src="./public/depth.png" class="w-170" />
+</div>
+
+---
+layout: quote
+---
+
+# we have a new problem
+
+who could have predicted this
+
+---
+---
+
+# solution: three rendering passes
+
+it only needs to run at 30 fps anyways
+
+- we can use another `SubViewport` to make our own depth texture
+- this pass excludes the windows;
+- only draws geometry we want to have the glowy edges
+
+<img src="./public/three_pass.png" class="absolute top-20 right-10" />
+
+<br>
+<br>
+<br>
+<v-click>
+
+## one more tiny problem
+
+
+<br>
+
+- small quirk; `SubViewport` uses a `R8G8B8` texture
+- if we only use one channel, we're downgrading from 32 bits -> 8 bits
+
+<v-click>
+
+- (that's bad)
+
+</v-click>
+</v-click>
+---
+---
+
+# RE: solution: solution
+
+last one, i promise
+
+we can use some fancy math in our shader to pack a `float` to a `vec3`
+
+```glsl
+vec3 PackFloatInVec3(float afX) {
+    vec3 vRet;
+    afX *= 255.0;
+    vRet.x = floor(afX);
+    afX = (afX - vRet.x) * 255.0;
+    vRet.y = floor(afX);
+    vRet.z = afX - vRet.y;
+    vRet.xy *= (1.0 / 255.0);
+    return vRet;
+}
+```
+
+<v-click>
+
+then we can unpack it on the other end:
+
+```glsl
+float UnpackVec3ToFloat(vec3 avVal) {
+    return dot(avVal, vec3(1.0, 1.0 / 255.0, 1.0 / (255.0*255.0)));
+}
+```
+
+</v-click>
 
 ---
 ---
@@ -419,6 +529,9 @@ follow me on twitch to find out (jk)
 - doing more with hand tracking
 
 ---
+layout: image-left
+image: love.png
+backgroundSize: 40em
 ---
 
 # final thoughts
