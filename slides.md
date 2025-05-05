@@ -27,9 +27,9 @@ TODO: make this slide better
 `mix(real_camera, virtual_camera, 0.5)`
 
 <div class="relative flex items-center justify-center">
-  <img src="./Camera3D.svg" width="250px" class="object-contain" />
+  <img src="/Camera3D.svg" width="250px" class="object-contain" />
   <span class="text-9xl ml-5 mr-10">+</span>
-  <img src="./sony.png" width="250px" class="mt-20 object-contain" />
+  <img src="/sony.png" width="250px" class="mt-20 object-contain" />
 </div>
 
 ---
@@ -40,7 +40,7 @@ layout: image
 
 `mix(real_camera, virtual_camera, 0.5)`
 
-<img src="./teaser.png" width="640px" class="mx-auto" />
+<img src="/teaser.png" width="640px" class="mx-auto" />
 
 ---
 
@@ -83,9 +83,9 @@ there are dozens of us!
 <div  class="relative">
   <div v-click>
 most streams looks like this:
-<img src="./every_stream.png" class="absolute w-120" />
+<img src="/every_stream.png" class="absolute w-120" />
     </div>
-<img v-click src="./arrow.svg" class="absolute w-80 ml-60 rotate--20" />
+<img v-click src="/arrow.svg" class="absolute w-80 ml-60 rotate--20" />
 <span v-after class="absolute text-[#FA0101] font-[Comic_Sans_MS] ml-145 mt--20 text-6xl">kinda<br>boring</span>
 </div>
 
@@ -94,9 +94,9 @@ most streams looks like this:
 # could it be more visually interesting?
 
 <div class="relative flex justify-center mt-10">
-  <img v-click src="./iron1.png" class="ml--10 absolute w-180" />
-  <img v-click src="./iron2.png" class="absolute w-140 mt-5" />
-  <img v-click src="./iron3.png" class="ml-10 absolute mt-15 w-180" />
+  <img v-click src="/iron1.png" class="ml--10 absolute w-180" />
+  <img v-click src="/iron2.png" class="absolute w-140 mt-5" />
+  <img v-click src="/iron3.png" class="ml-10 absolute mt-15 w-180" />
 </div>
 <!--
 move the not a video production expert
@@ -118,7 +118,7 @@ layout: quote
 
 # ...but i *am* a game developer
 
-<img src="./thonk.png" class="w-60 items-end" />
+<img src="/thonk.png" class="w-60 items-end" />
 </div>
 
 <!--
@@ -129,11 +129,11 @@ maybe the solution is to stop thinking about streaming like video production, an
 layout: cover
 ---
 
-<SlidevVideo src="./demo.mp4" autoplay loop autoreset='slide' />
+<SlidevVideo src="/demo.mp4" autoplay loop autoreset='slide' />
 
 ---
 
-<SlidevVideo src="./trippy.mp4" autoplay autoreset='slide' />
+<SlidevVideo src="/trippy.mp4" autoplay autoreset='slide' />
 
 ---
 
@@ -156,7 +156,7 @@ it's rewind time
 
 </v-click>
 
-<img src="./obs.png" class="absolute right-30 top-40 w-50" />
+<img src="/obs.png" class="absolute right-30 top-40 w-50" />
 
 ---
 
@@ -171,7 +171,7 @@ we've been waiting
   - ✅ **using GDScript**: lovely
 - bonus points: i'm already familiar with it
 
-<img src="./godot.png" class="w-60 mt-10 mx-auto" />
+<img src="/godot.png" class="w-60 mt-10 mx-auto" />
 
 ---
 ---
@@ -216,7 +216,7 @@ it's never that simple
   <li>maybe i can improve it?</li>
 </v-click>
 
-<img src="./spout.png" class="absolute right-40 top-40 w-50" />
+<img src="/spout.png" class="absolute right-40 top-40 w-50" />
 
 ---
 
@@ -253,7 +253,7 @@ TODO: diagram
 
 # learning Vulkan
 
-<img src="./vulkan.jpg" class="mx-auto w-150" />
+<img src="/vulkan.jpg" class="mx-auto w-150" />
 
 ---
 layout: quote
@@ -274,9 +274,9 @@ sometimes it's ok to give up on those rabbithole tasks
 fancy word for "separate the background"
 
 <div class="relative justify-center flex">
-<img src="./think.png" class="w-160 absolute" />
-<img v-click src="./background.png" class="w-160 absolute" />
-<img v-click src="./green_screen.png" class="w-160 absolute" />
+<img src="/think.png" class="w-160 absolute" />
+<img v-click src="/background.png" class="w-160 absolute" />
+<img v-click src="/green_screen.png" class="w-160 absolute" />
 </div>
 
 ---
@@ -287,16 +287,16 @@ fancy word for "separate the background"
 fancy word for "separate the background"
 
 <div class="flex justify-center gap-5 mt-20">
-<img src="./background.png" class="w-80 border-1" />
+<img src="/background.png" class="w-80 border-1" />
   <span class="text-9xl pt-4">+</span>
-<img src="./keyed.png" class="w-80 border-1" />
+<img src="/keyed.png" class="w-80 border-1" />
   </div>
 
 ---
 
 # ... it looks bad.
 
-<img src="./gru.jpg" class="w-160 mx-auto" />
+<img src="/gru.jpg" class="w-160 mx-auto" />
 
 ---
 layout: two-cols
@@ -331,7 +331,7 @@ void fragment() {
 
 ::right::
 
-<img src="./noise.png" class="w-80 ml-20 mt-20" />
+<img src="/noise.png" class="w-80 ml-20 mt-20" />
 
 <!--
 add some code highlight annotations mebe
@@ -347,9 +347,9 @@ it's usually easier to go the other way...
 
 <br>
 
-<img src="./photogrammetry.jpg" class="w-150 mx-auto" />
+<img src="/photogrammetry.jpg" class="w-150 mx-auto" />
 
-<img v-click src="./big_x.svg" class="absolute w-200 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3" />
+<img v-click src="/big_x.svg" class="absolute w-200 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3" />
 ---
 
 # step 2: make it 3D
@@ -357,9 +357,9 @@ it's usually easier to go the other way...
 it's usually easier to go the other way...
 
 <div class="flex justify-center gap-5 mt-20">
-<img src="./blender.svg" class="w-80" />
+<img src="/blender.svg" class="w-80" />
   <span class="text-9xl pt-18">+</span>
-<img src="./tape_measure.png" class="w-80" />
+<img src="/tape_measure.png" class="w-80" />
   </div>
 
 ---
@@ -368,7 +368,7 @@ it's usually easier to go the other way...
 
 it's usually easier to go the other way...
 
-<img src="./lol_blender.png" class="w-160 mx-auto" />
+<img src="/lol_blender.png" class="w-160 mx-auto" />
 
 ---
 
@@ -380,7 +380,7 @@ not a very exact science
 
 <br>
 
-<img src="./fspy.jpg" class="w-130 mx-auto" />
+<img src="/fspy.jpg" class="w-130 mx-auto" />
 
 ---
 
@@ -388,7 +388,7 @@ not a very exact science
 
 not a very exact science
 
-<img src="./aligned.png" class="w-130 mx-auto" />
+<img src="/aligned.png" class="w-130 mx-auto" />
 
 ---
 
@@ -421,7 +421,7 @@ void fragment() {
 make it look like before again
 
 
-<SlidevVideo src="./panning.mp4" autoplay loop class="absolute w-180 left-30 top-30"/>
+<SlidevVideo src="/panning.mp4" autoplay loop class="absolute w-180 left-30 top-30"/>
 
 ---
 
@@ -429,7 +429,7 @@ make it look like before again
 
 make it look like before again
 
-<img src="./same.jpg" class="w-170 mx-auto" />
+<img src="/same.jpg" class="w-170 mx-auto" />
 
 ---
 
@@ -437,7 +437,7 @@ make it look like before again
 
 it just works!
 
-<SlidevVideo src="./dof.mp4" autoplay loop autoreset='slide' class="absolute w-180 left-30 top-30"/>
+<SlidevVideo src="/dof.mp4" autoplay loop autoreset='slide' class="absolute w-180 left-30 top-30"/>
 
 ---
 layout: image-right
@@ -464,9 +464,9 @@ backgroundSize: contain
 why can't everything just be opaque?
 
 <div class="relative">
-<img src="./blur_cancel.png" class="w-120 absolute" />
-<img v-click src="./blur_cancel.png" class="mt-49 scale-[1.1] ml-100 w-100 h-50 absolute object-none object-[50%_35%] blur" />
-<img v-after src="./blur_cancel.png" class="mt-49 scale-[1.1] ml-100 w-100 h-50 absolute object-none object-[50%_35%]" />
+<img src="/blur_cancel.png" class="w-120 absolute" />
+<img v-click src="/blur_cancel.png" class="mt-49 scale-[1.1] ml-100 w-100 h-50 absolute object-none object-[50%_35%] blur" />
+<img v-after src="/blur_cancel.png" class="mt-49 scale-[1.1] ml-100 w-100 h-50 absolute object-none object-[50%_35%]" />
   </div>
 
 ---
@@ -475,7 +475,7 @@ why can't everything just be opaque?
 
 it only needs to run at 60 fps anyways
 
-<img src="./two_pass.png" class="w-180 mx-auto" />
+<img src="/two_pass.png" class="w-180 mx-auto" />
 
 
 ---
@@ -485,8 +485,8 @@ it only needs to run at 60 fps anyways
 no matter the cost
 
 <div class="flex gap-20 justify-center">
-<img src="./glow1.png" class="w-90" />
-<img src="./glow2.png" class="w-90" />
+<img src="/glow1.png" class="w-90" />
+<img src="/glow2.png" class="w-90" />
 </div>
 
 ---
@@ -500,7 +500,7 @@ nothing will go wrong (lol)
 <br>
 
 <div class="flex gap-20 justify-center">
-<img src="./depth.png" class="w-150" />
+<img src="/depth.png" class="w-150" />
 </div>
 
 ---
@@ -521,7 +521,7 @@ it only needs to run at 30 fps anyways
 - this pass excludes the windows;
 - only draws geometry we want to have the glowy edges
 
-<img src="./three_pass.png" class="absolute top-20 right-10" />
+<img src="/three_pass.png" class="absolute top-20 right-10" />
 
 <br>
 <br>
@@ -582,9 +582,9 @@ float UnpackVec3ToFloat(vec3 avVal) {
 last one, i promise
 
 <div class="flex justify-center gap-5 items-center mt-20">
-<img src="./depth.png" class="w-90 " />
+<img src="/depth.png" class="w-90 " />
 <span class="text-6xl">&rarr;</span>
-<img src="./very_deep.png" class="w-90 " />
+<img src="/very_deep.png" class="w-90 " />
 </div>
 
 ---
@@ -596,7 +596,7 @@ follow me on twitch to find out (jk)
 - more integrations with twitch chat / redeems
 - tie some animations to hand tracking
 
-<SlidevVideo src="./hands.mp4" autoplay loop class="w-100 absolute top-40 right-15"/>
+<SlidevVideo src="/hands.mp4" autoplay loop class="w-100 absolute top-40 right-15"/>
 
 ---
 
@@ -607,7 +607,7 @@ follow me on twitch to find out (jk)
 - more integrations with twitch chat / redeems
 - tie some animations to hand tracking
 
-<SlidevVideo src="./hands.mp4" autoplay loop class="w-100 absolute top-40 right-15"/>
+<SlidevVideo src="/hands.mp4" autoplay loop class="w-100 absolute top-40 right-15"/>
 
 ---
 layout: image-left
