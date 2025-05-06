@@ -185,6 +185,8 @@ we've been waiting
 
 the plan is simple
 
+<div>
+
 <v-after>1. capture my camera and desktop in Godot<br></v-after>
 <v-click>2. create a 3D scene out of that somehow<br>
 </v-click>
@@ -194,6 +196,8 @@ the plan is simple
 </v-click>
 
 <v-click><br><br><br>5. it only needs to work on Windows (sorry)</v-click>
+
+</div>
 
 ---
 
@@ -295,17 +299,28 @@ fancy word for "separate the background"
 <img src="/gru.jpg" class="w-160 mx-auto" />
 
 ---
-layout: two-cols
 ---
 
 # why?
+
+<div v-click.hide class="flex justify-between flex-row items-start">
+
+  <div>
 
 - real cameras are imperfect
 - random noise in the image changes each frame
 - physics n' stuff
 
+
+
+
+</div>
+<img src="/noise.png" class="w-80 ml-20" />
+
+</div>
+
 <br>
-<v-click>
+<div v-after class="mt--60 bigger">
 
 ## we can fix it!
 
@@ -323,11 +338,7 @@ void fragment() {
   ALBEDO = tex + vec3(rand) * 0.004;
 }
 ```
-</v-click>
-
-::right::
-
-<img src="/noise.png" class="w-80 ml-20 mt-20" />
+</div>
 
 <!--
 add some code highlight annotations mebe
@@ -392,7 +403,12 @@ not a very exact science
 
 make it look like before again
 
+<div>
+
 how do we apply the texture to the model?
+
+</div>
+<div class="bigger">
 
 ````md magic-move {lines: true}
 ```glsl {all|2}
@@ -410,6 +426,8 @@ void fragment() {
 ```
 ````
 
+  </div>
+
 ---
 
 # re-projecting
@@ -417,7 +435,7 @@ void fragment() {
 make it look like before again
 
 
-<SlidevVideo src="panning.mp4" autoplay loop class="absolute w-180 left-30 top-30"/>
+<SlidevVideo src="panning.mp4" autoplay loop class="absolute w-180 left-30 top-35"/>
 
 ---
 
@@ -433,27 +451,24 @@ make it look like before again
 
 it just works!
 
-<SlidevVideo src="dof.mp4" autoplay loop autoreset='slide' class="absolute w-180 left-30 top-30"/>
+<SlidevVideo src="dof.mp4" autoplay loop autoreset='slide' class="absolute w-180 left-30 top-35"/>
 
 ---
-layout: image-right
-image: gooder.png
-backgroundSize: contain
 ---
 
 # step 3: window capture
 
 <br>
 <br>
-<br>
 
-- i wrote a [gdextension](https://github.com/cgsdev0/gd-capture-external) 
+- i wrote a [gdextension](https://github.com/cgsdev0/gd-capture-external)
 - supports capturing windows by ID
-- exposes the window as a `Texture` resource
+- exposes the window as a `Texture`
 - uses the `WindowsGraphicsCapture` API
 - the code is bad, but it's available
 
 <img src="/no_desc.png" class="absolute bottom-10" />
+<img src="/gooder.png" class="absolute right-5 top-35 w-120" />
 
 ---
 
@@ -497,8 +512,9 @@ nothing will go wrong (lol)
 
 <br>
 
-<div class="flex gap-20 justify-center">
-<img src="/depth.png" class="w-150" />
+<div class="flex gap-10 justify-center">
+<img src="/shield.png" class="w-100" />
+<img src="/depth.png" class="w-100" />
 </div>
 
 ---
@@ -515,12 +531,15 @@ who could have predicted this
 
 it only needs to run at 30 fps anyways
 
-- we can use another `SubViewport` to make our own depth texture
-- this pass excludes the windows;
-- only draws geometry we want to have the glowy edges
+<br>
+<br>
 
-<img src="/three_pass.png" class="absolute top-20 right-10" />
+- one more `SubViewport`
+- only draws opaque geometry
 
+<img src="/three_pass.png" class="absolute top-30 right-10" />
+
+<br>
 <br>
 <br>
 <br>
@@ -546,7 +565,10 @@ it only needs to run at 30 fps anyways
 
 last one, i promise
 
-we can use some fancy math in our shader to pack a `float` to a `vec3`
+<div class="bigger">
+
+we can use some math in our shader to pack a `float` to a `vec3`
+
 
 ```glsl
 vec3 PackFloatInVec3(float afX) {
@@ -561,9 +583,18 @@ vec3 PackFloatInVec3(float afX) {
 }
 ```
 
-<v-click>
+</div>
 
-then we can unpack it on the other end:
+
+---
+
+# RE: solution: solution
+
+last one, i promise
+
+<div class="bigger">
+
+unpack it on the other side:
 
 ```glsl
 float UnpackVec3ToFloat(vec3 avVal) {
@@ -571,7 +602,7 @@ float UnpackVec3ToFloat(vec3 avVal) {
 }
 ```
 
-</v-click>
+</div>
 
 ---
 
