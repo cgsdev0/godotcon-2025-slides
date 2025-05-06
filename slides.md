@@ -1,6 +1,6 @@
 ---
 # stuff
-theme: default
+theme: ./theme
 info: a
 title: Using Godot for mixed-reality livestreaming
 # apply unocss classes to the current slide
